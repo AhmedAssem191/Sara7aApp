@@ -1,7 +1,12 @@
 {
-  "name": "week-11-kareem-sara7a",
+  "name": "sara7a-app",
+  "private": true,
   "version": "1.0.0",
   "description": "Sara7a anonymous messaging API",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AhmedAssem191/Sara7aApp.git"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node .",

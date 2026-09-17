@@ -4,6 +4,13 @@ Node.js / Express API for private anonymous messages. This repository is a backe
 
 ## Setup
 
+Clone the repository and enter its directory:
+
+```sh
+git clone https://github.com/AhmedAssem191/Sara7aApp.git
+cd Sara7aApp
+```
+
 1. Use Node.js 22.12+ and MongoDB 7+.
 2. Run `npm ci`.
 3. Copy `config/.env.example` to `config/.env.dev` and fill in your own values. Production uses `config/.env.prod` or injected environment variables.
@@ -29,6 +36,7 @@ Generate independent secrets with `node -e "console.log(require('node:crypto').r
 - Shared MongoDB request limits, duplicate-message suppression, optional Turnstile CAPTCHA.
 
 See [API reference](docs/API.md) and [verification notes](docs/VERIFICATION.md).
+For the project review and demonstration, see the [submission guide](docs/SUBMISSION.md).
 
 ## Tests
 
