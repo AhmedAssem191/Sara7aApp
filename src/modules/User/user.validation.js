@@ -1,0 +1,15 @@
+import Joi from 'joi';
+import { generalFields as f, pagination } from '../../middlewares/validation.middleware.js';
+const handle = Joi.string().trim().lowercase().pattern(/^[a-z0-9][a-z0-9_-]{2,29}$/);
+const image = Joi.object({ fieldname: Joi.string().valid('attachments').required(), mimetype: Joi.string().valid('image/png', 'image/jpeg').required(), size: Joi.number().max(5 * 1024 * 1024).required() }).unknown(true);
+export const updateProfilePicSchema = { file: image.required() };
+export const coverImagesValidation = { files: Joi.array().items(image).min(1).max(5).required() };
+export const updatePasswordSchema = { body: Joi.object({ oldPassword: Joi.string().max(128).required(), newPassword: f.password.required(), confirmNewPassword: Joi.string().valid(Joi.ref('newPassword')).required() }).required() };
+export const freezeAccountSchema = { params: Joi.object({ userId: f.id }) };
+export const restoreAccountSchema = { params: Joi.object({ userId: f.id.required() }) };
+export const hardDeleteAccountSchema = restoreAccountSchema;
+export const handleSchema = { params: Joi.object({ handle: handle.required() }) };
+export const profileSchema = { body: Joi.object({ firstName: f.firstName, lastName: f.lastName, handle, bio: Joi.string().trim().max(300).allow(''), theme: Joi.string().valid('light', 'dark', 'blue'), acceptMessages: Joi.boolean(), allowAnonymous: Joi.boolean(), notificationsEnabled: Joi.boolean() }).min(1).required() };
+export const deleteSelfSchema = { body: Joi.object({ confirmation: Joi.string().valid('DELETE').required(), password: Joi.string().max(128), idToken: Joi.string().max(10000) }).required() };
+export const blockSchema = { params: Joi.object({ blockId: f.id.required() }) };
+export const listSchema = { query: Joi.object(pagination).default() };

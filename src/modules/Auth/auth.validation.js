@@ -1,0 +1,10 @@
+import Joi from 'joi';
+import { generalFields as f } from '../../middlewares/validation.middleware.js';
+export const signupSchema = { body: Joi.object({ firstName: f.firstName.required(), lastName: f.lastName.required(), email: f.email.required(), age: f.age.required(), phone: f.phone.required(), password: f.password.required(), confirmPassword: f.confirmPassword }).required() };
+export const loginSchema = { body: Joi.object({ email: f.email.required(), password: Joi.string().min(1).max(128).required() }).required() };
+export const confirmEmailSchema = { body: Joi.object({ email: f.email.required(), otp: f.otp.required() }).required() };
+export const forgetPasswordSchema = { body: Joi.object({ email: f.email.required() }).required() };
+export const resetPasswordSchema = { body: Joi.object({ email: f.email.required(), otp: f.otp.required(), password: f.password.required(), confirmPassword: f.confirmPassword }).required() };
+export const googleSchema = { body: Joi.object({ idToken: Joi.string().max(10000).required() }).required() };
+export const logoutSchema = { body: Joi.object({ flag: Joi.string().valid('logout', 'logoutFromAll').default('logout') }).default({ flag: 'logout' }) };
+export const sessionSchema = { params: Joi.object({ sessionId: Joi.string().uuid().required() }).required() };
