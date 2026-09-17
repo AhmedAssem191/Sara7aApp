@@ -1,6 +1,6 @@
 # Sara7a API
 
-Node.js / Express API for private anonymous messages. This repository is a backend: public profiles, moderation, settings and notifications are exposed as APIs for a frontend to consume.
+Node.js and Express backend for anonymous messaging, with MongoDB, authentication, private inboxes, profiles and moderation.
 
 ## Setup
 
@@ -35,8 +35,7 @@ Generate independent secrets with `node -e "console.log(require('node:crypto').r
 - Streaming NDJSON data export and identity-verified account deletion.
 - Shared MongoDB request limits, duplicate-message suppression, optional Turnstile CAPTCHA.
 
-See [API reference](docs/API.md) and [verification notes](docs/VERIFICATION.md).
-For the project review and demonstration, see the [submission guide](docs/SUBMISSION.md).
+See the [API reference](docs/API.md) for endpoints and request formats.
 
 ## Tests
 
@@ -48,8 +47,6 @@ npm run test:integration
 ```
 
 Tests use a temporary local MongoDB instance through mongodb-memory-server, never your configured database. The first install/test may download a MongoDB executable. Email delivery and Google verification use test doubles; no emails are sent. Test uploads are isolated by generated account IDs and removed afterward.
-
-Latest local verification: 30 tests passed; 58 JavaScript files passed syntax and import-case checks. The development configuration also passed validation without printing secrets.
 
 ## Deployment details
 
