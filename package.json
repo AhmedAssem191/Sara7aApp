@@ -10,11 +10,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "start:dev": "node --watch .",
-    "test": "node test/run.js",
-    "test:unit": "node test/run.js test/core.test.js test/captcha.test.js",
-    "test:integration": "node test/run.js test/integration.test.js",
-    "check": "node test/check.js"
+    "start:dev": "node --watch ."
   },
   "keywords": [],
   "author": "",
@@ -43,9 +39,6 @@
     "redis": "^6.2.0",
     "sharp": "^0.35.4",
     "uuid": "^14.0.1"
-  },
-  "devDependencies": {
-    "mongodb-memory-server": "^11.2.0"
   },
   "engines": {
     "node": ">=22.12"

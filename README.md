@@ -37,17 +37,6 @@ Generate independent secrets with `node -e "console.log(require('node:crypto').r
 
 See the [API reference](docs/API.md) for endpoints and request formats.
 
-## Tests
-
-```sh
-npm test
-npm run check
-npm run test:unit
-npm run test:integration
-```
-
-Tests use a temporary local MongoDB instance through mongodb-memory-server, never your configured database. The first install/test may download a MongoDB executable. Email delivery and Google verification use test doubles; no emails are sent. Test uploads are isolated by generated account IDs and removed afterward.
-
 ## Deployment details
 
 - Set PUBLIC_URL to the externally reachable API origin (used for QR/share links).
