@@ -1,5 +1,5 @@
 // Initialize test-only environment before starting Node so native libraries see it too.
-import '../test/setup.js';
+import './setup.js';
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
 const files = process.argv.slice(2);

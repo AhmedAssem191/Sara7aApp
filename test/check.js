@@ -10,7 +10,7 @@ function walk(directory) {
     else if (file.endsWith('.js')) files.push(file);
   }
 }
-for (const root of ['src', 'config', 'test', 'scripts']) walk(root);
+for (const root of ['src', 'config', 'test']) walk(root);
 files.push('index.js');
 let errors = 0;
 for (const file of files) {

@@ -11,10 +11,10 @@
   "scripts": {
     "start": "node .",
     "start:dev": "node --watch .",
-    "test": "node scripts/test.js",
-    "test:unit": "node scripts/test.js test/core.test.js test/captcha.test.js",
-    "test:integration": "node scripts/test.js test/integration.test.js",
-    "check": "node scripts/check.js"
+    "test": "node test/run.js",
+    "test:unit": "node test/run.js test/core.test.js test/captcha.test.js",
+    "test:integration": "node test/run.js test/integration.test.js",
+    "check": "node test/check.js"
   },
   "keywords": [],
   "author": "",
